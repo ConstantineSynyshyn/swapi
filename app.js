@@ -98,7 +98,7 @@ const getStarWarsData = () => {
                             });
                     });
             });
-            return Promise.all(array);
+            return Promise.all(array).catch(error => console.log(error));
         })
         .then(console.table);
 };
