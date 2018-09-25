@@ -71,8 +71,9 @@ const getStarWarsData = () => {
             const array = planetsList.map(planet => {
                 const residentsListUrls = planet.residents;
                 const residentsPromises = residentsListUrls.map(url => {
-                    return axios.get(url);
+                    return axios.get(url).catch(err=>  null);
                 })
+                
                 return Promise.all(residentsPromises)
                     .then(residents => {
                         const residentsRes = residents.map(resident => {
